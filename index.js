@@ -1,6 +1,6 @@
 // create an event listner for form submission
 'use strict';
-$('#js-shopping-list-form').on('submit',
+function AddItem(){$('#js-shopping-list-form').on('submit',
   function(e){
     e.preventDefault();
     console.log('clicked');
@@ -22,15 +22,25 @@ $('#js-shopping-list-form').on('submit',
         </div>
       </li>`);
   });
+}
 //toggle the checked and unchecked items
-$('ul').on('click', '.shopping-item-toggle',function () {
-  console.log('clicked2');
-  $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
-});
+function toggleCheckUncheck(){
+  $('ul').on('click', '.shopping-item-toggle',function () {
+    console.log('clicked2');
+    $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
+  });
+}
 // delete the shopping list items when delete is clicked
-$('ul').on('click', '.shopping-item-delete',function() {
-  console.log("hello");
-  $(this).parents('li').remove();
-});
+function deleteItem(){
+  $('ul').on('click', '.shopping-item-delete',function() {
+    console.log('hello');
+    $(this).parents('li').remove();
+  });
+}
+
+$(
+  AddItem);
+$(deleteItem);
+$(toggleCheckUncheck);
 
 
